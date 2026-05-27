@@ -7,11 +7,10 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#15803D"
+      "backgroundColor": "#1B1F3B"
     },
     "ios": {
       "supportsTablet": true,
@@ -19,23 +18,53 @@
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#15803D",
+        "backgroundColor": "#1B1F3B",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
       "package": "com.handasjabajuice.mobile",
-      "predictiveBackGestureEnabled": false
+      "softwareKeyboardLayoutMode": "resize",
+      "predictiveBackGestureEnabled": false,
+      "enableProguardInReleaseBuilds": true,
+      "enableShrinkResourcesInReleaseBuilds": true,
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "bundler": "metro",
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/icon.png",
+          "color": "#F5317F",
+          "sounds": []
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow Handas Jaba Juice to access your photos to update your profile picture and attach images to support tickets.",
+          "cameraPermission": "Allow Handas Jaba Juice to use your camera to take a profile picture."
+        }
+      ],
+      "./plugins/withAbiSplits"
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "da2603f4-4989-46e9-8d49-eefe16f95743"
+      }
+    },
+    "owner": "metacap"
   }
 }
